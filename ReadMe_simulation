@@ -1,0 +1,24 @@
+Software: MAtlab Simulink
+Toolboxes: Stateflow, Robotics toolbox
+
+singleAGVSimpleModel is the stateflow plant model assuming only one AGV, it has AGV chart which has
+all the possible states for the AGV: Initial position, storage, Red& blue, Yellow& black, mixing station and invalidTransition
+The transition times are considered constant and can be found in the model explorer
+The Mixing chart has 2 state: on and off for the mixer. The transition between them is done through message sent from AGV chart.
+Red and black chart has 3 states: filling black, filling yellow or no filling. The transition again is done through message sent from AGV chart.
+The same goes for yellow and black chart. 
+The input to the AGV chart is a square signal and each number represents a station.
+It is written inside the file itself which number is which station.
+
+FourAGVsFullModle 
+is the full stateflow model of the plant with 4 AGVs. 
+ The difference was adding stationBusy state in every AGV chart. Every thing else is the same
+
+AGVsTrajectory is the simulink model for live trajectory plot. 
+It takes the input from the excel sheet AGVs.
+newmap is the map of te plant and use in AGVplot file.
+AGVplotfile is matlab code that takes the positions as output from AGVsTrajectory simulink model
+and plots them. 
+
+Link for some simulation videos: 
+https://drive.google.com/drive/folders/1ZLhAF7fy0IZGgiS8rfPozlvU6935gSmK?usp=sharing
